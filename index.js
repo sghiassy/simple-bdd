@@ -1,14 +1,17 @@
-global.prefix = "";
+var prefix = "  ";
+
+console.log('\n\n' + "STARTING TESTS" + '\n\n');
 
 // Global Functions
-global.describe = function(title, test) {
+function describe(title, test) {
   console.log(prefix + "DESCRIBE: " + title);
   prefix += "  "; // indent the prefix by two space in
   test();
+  console.log('');
   prefix = prefix.slice(0, -2); // decrement the prefix by two spaces out
 }
 
-global.it = function(title, test) {
+function it(title, test) {
   if (!test) {
     console.log(prefix + "SKIP: " + title + '\n');
     return;
