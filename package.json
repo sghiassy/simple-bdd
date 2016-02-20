@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "debug": "node-debug tests.js",
+    "start": "node tests.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/sghiassy/simple-bdd/issues"
   },
-  "homepage": "https://github.com/sghiassy/simple-bdd#readme"
+  "homepage": "https://github.com/sghiassy/simple-bdd#readme",
+  "dependencies": {
+    "should": "^8.2.2"
+  }
 }
