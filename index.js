@@ -40,4 +40,4 @@ Object.prototype.should_equal = function(value) {
       actual:value
     })
   }
-}
+};

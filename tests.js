@@ -1,21 +1,29 @@
-// var should = require('should');
-require('./index.js');
-
 var arr = [];
 
-describe("Array", function() {
-  it("should be able to push a value", function() {
-    arr.push(5);
-    arr.pop().should_equal(4);
+describe("Simple-BDD", function() {
+  it("should be able to correctly compare values", function() {
+    new Number(2).should_equal(2);
+    "three".should_equal("three");
+    true.should_equal(true);
+    false.should_equal(false);
+
+    var und;
+    (und === undefined).should_equal(true); // Undefined has to be tested differently
+
+    var obj = {};
+    obj.should_equal(obj);
+
   });
 
-  it("should remove the value after the pop", function() {
-    (arr.pop() === undefined).should_equal(true);
+  it("should throw an error when values are different", function() {
+    new Number(2).should_equal(3);
+    "three".should_equal(4);
+    true.should_equal(false);
   });
 
-  it("should work");
+  it("should be able to process incomplete tests");
 
-  describe("A Nested Describe function", function() {
+  describe("Nested describe functions", function() {
 
     it("should work inside a nested describe function", function() {
       var two = 2;
