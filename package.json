@@ -1,0 +1,19 @@
+{
+  "name": "simple-bdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sghiassy/simple-bdd.git"
+  },
+  "author": "Shaheen Ghiassy <s.ghiassy@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sghiassy/simple-bdd/issues"
+  },
+  "homepage": "https://github.com/sghiassy/simple-bdd#readme"
+}
