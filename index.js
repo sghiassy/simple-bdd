@@ -22,7 +22,7 @@ function it(title, test) {
   } catch(e) {
     console.log(prefix + "FAIL: " + title);
     title = "";
-    console.log(prefix + '  - Expected ' + e['expected'] + ' ' + e['operator'] + ' ' + e['actual'] + '\n');
+    console.log(e);
   } finally {
     if (title != "") {
       console.log(prefix + "PASS: " + title + '\n');
