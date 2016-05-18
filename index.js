@@ -11,10 +11,13 @@ function describe(title, test) {
   prefix = prefix.slice(0, -2); // decrement the prefix by two spaces out
 }
 
+function xdescribe(title, text) {
+  console.log(prefix + "SKIPPING: " + title);
+}
+
 function it(title, test) {
   if (!test) {
-    console.log(prefix + "SKIP: " + title + '\n');
-    return;
+    xit(title, test); // skip it
   }
 
   try {
@@ -28,6 +31,11 @@ function it(title, test) {
       console.log(prefix + "PASS: " + title + '\n');
     }
   }
+}
+
+function xit(title, test) {
+  console.log(prefix + "SKIP: " + title + '\n');
+  return;
 }
 
 Object.prototype.should_equal = function(value) {
