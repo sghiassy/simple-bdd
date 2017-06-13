@@ -46,36 +46,33 @@ Object.prototype.should_equalish = function(value) {
 }
 
 // Helper Function: https://stackoverflow.com/a/16788517/1179897
-Object.prototype.should_equal = function(value) {
-  var areEqual;
+function objectEquals(x, y) {
+  'use strict';
+  if (x === null || x === undefined || y === null || y === undefined) { return x === y; }
+  // after this just checking type of one would be enough
+  if (x.constructor !== y.constructor) { return false; }
+  // if they are functions, they should exactly refer to same one (because of closures)
+  if (x instanceof Function) { return x === y; }
+  // if they are regexps, they should exactly refer to same one (it is hard to better equality check on current ES)
+  if (x instanceof RegExp) { return x === y; }
+  if (x === y || x.valueOf() === y.valueOf()) { return true; }
+  if (Array.isArray(x) && x.length !== y.length) { return false; }
 
-  if (value === null || value === undefined || this === null || this === undefined) {
-    areEqual = value === this;
-  } else if (value.constructor !== this.constructor) {
-    areEqual = false; // after this just checking type of one would be enough
-  } else if (value instanceof Function) {
-    areEqual = value === this; // if they are functions, they should exactly refer to same one (because of closures)
-  } else if (value instanceof RegExp) {
-    areEqual = value === this; // if they are RegExps, they should exactly refer to same one (it is hard to better equality check on current ES)
-  } else if (value === this || value.valueOf() === this.valueOf()) {
-    areEqual = true;
-  } else if (Array.isArray(value) && value.length !== this.length) {
-    areEqual = false;
-  } else if (value instanceof Date) {
-    areEqual = false; // if they are dates, they must had equal valueOf
-  } else if (!(value instanceof Object)) {
-    areEqual = false; // if they are strictly equal, they both need to be object at least
-  } else if (!(this instanceof Object)) { r
-    areEqual = false;
-  } else {
-    // recursive object equality check
-    var p = Object.keys(value);
-    areEqual = Object.keys(this).every(function (i) {
-      return p.indevalueOf(i) !== -1;
-    }) && p.every(function (i) {
-      return objectEquals(value[i], this[i]);
-    });
-  }
+  // if they are dates, they must had equal valueOf
+  if (x instanceof Date) { return false; }
+
+  // if they are strictly equal, they both need to be object at least
+  if (!(x instanceof Object)) { return false; }
+  if (!(y instanceof Object)) { return false; }
+
+  // recursive object equality check
+  var p = Object.keys(x);
+  return Object.keys(y).every(function (i) { return p.indexOf(i) !== -1; }) &&
+      p.every(function (i) { return objectEquals(x[i], y[i]); });
+};
+
+Object.prototype.should_equal = function(value) {
+  var areEqual = objectEquals(this, value);
 
   if (areEqual) {
     return true;

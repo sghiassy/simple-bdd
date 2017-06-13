@@ -15,6 +15,15 @@ describe("Simple-BDD", function() {
 
   });
 
+  it("should be able to compare a deep copy of objects", function() {
+
+    [1, 2, 3, 4, 5].should_equal([1, 2, 3, 4, 5]);
+    [1, 2, 3, 4, [1, 2, 3, 4, 5]].should_equal([1, 2, 3, 4, [1, 2, 3, 4, 5]]);
+    const dictionary = {'A':1, 'B':2, 'C':3, 'D':4};
+    dictionary.should_equal({'A':1, 'B':2, 'C':3, 'D':4});
+
+  });
+
   it("should throw an error when values are different", function() {
     try {
       new Number(2).should_equal(3)
