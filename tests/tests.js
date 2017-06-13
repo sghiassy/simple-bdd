@@ -15,10 +15,24 @@ describe("Simple-BDD", function() {
 
   });
 
-  xit("should throw an error when values are different", function() {
-    new Number(2).should_equal(3);
-    "three".should_equal(4);
-    true.should_equal(false);
+  it("should throw an error when values are different", function() {
+    try {
+      new Number(2).should_equal(3)
+    } catch(e) {
+      e.should_equalish(true); // and an error is good here
+    }
+
+    try {
+      "three".should_equal(4);
+    } catch (e) {
+      e.should_equalish(true); // and an error is good here
+    }
+
+    try {
+      true.should_equal(false);
+    } catch (e) {
+      e.should_equalish(true); // want an error here
+    }
   });
 
   it("should be able to process incomplete tests");

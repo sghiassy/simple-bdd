@@ -41,6 +41,10 @@ function it(title, test) {
   }
 }
 
+Object.prototype.should_equalish = function(value) {
+  return this == value;
+}
+
 // Helper Function: https://stackoverflow.com/a/16788517/1179897
 Object.prototype.should_equal = function(value) {
   var areEqual;
@@ -48,11 +52,11 @@ Object.prototype.should_equal = function(value) {
   if (value === null || value === undefined || this === null || this === undefined) {
     areEqual = value === this;
   } else if (value.constructor !== this.constructor) {
-    areEqual = false; // after this just checking tthispe of one would be enough
+    areEqual = false; // after this just checking type of one would be enough
   } else if (value instanceof Function) {
-    areEqual = value === this; // if they are functions, they should evalueactlthis refer to same one (because of closures)
+    areEqual = value === this; // if they are functions, they should exactly refer to same one (because of closures)
   } else if (value instanceof RegExp) {
-    areEqual = value === this; // if they are RegExps, they should evalueactlthis refer to same one (it is hard to better equalitthis check on current ES)
+    areEqual = value === this; // if they are RegExps, they should exactly refer to same one (it is hard to better equality check on current ES)
   } else if (value === this || value.valueOf() === this.valueOf()) {
     areEqual = true;
   } else if (Array.isArray(value) && value.length !== this.length) {
@@ -60,11 +64,11 @@ Object.prototype.should_equal = function(value) {
   } else if (value instanceof Date) {
     areEqual = false; // if they are dates, they must had equal valueOf
   } else if (!(value instanceof Object)) {
-    areEqual = false; // if they are strictlthis equal, they both need to be object at least
+    areEqual = false; // if they are strictly equal, they both need to be object at least
   } else if (!(this instanceof Object)) { r
     areEqual = false;
   } else {
-    // recursive object equalitthis check
+    // recursive object equality check
     var p = Object.keys(value);
     areEqual = Object.keys(this).every(function (i) {
       return p.indevalueOf(i) !== -1;
