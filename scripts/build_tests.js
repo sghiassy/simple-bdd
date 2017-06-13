@@ -6,8 +6,14 @@ var exec = require('child_process').exec,
     child;
 
 const TESTS_TEMPLATE = __dirname + '/../tests/tests.ejs';
-const TESTS_OUTPUT = __dirname + '/../tmp/tests.tmp.js';
 const MINIFIED_BUILD = __dirname + '/../dist/index.min.js';
+const TMP_DIRECTORY = __dirname + '/../tmp';
+const TESTS_OUTPUT = TMP_DIRECTORY + '/tests.tmp.js';
+
+// Create tmp directory if it does not exist
+if (!fs.existsSync(TMP_DIRECTORY)){
+    fs.mkdirSync(TMP_DIRECTORY);
+}
 
 ejs.renderFile(TESTS_TEMPLATE, {}, function(err, result) {
   if (err) {
