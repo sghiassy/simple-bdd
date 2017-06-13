@@ -130,3 +130,8 @@ STARTING TESTS
 
     SKIP: should square the number I give it
 ```
+
+#### Equality Checks
+
+  * **should_equal**: Will perform a deep-copy of equality on primitives and objects
+  * **should_equalish** Will do a simple JS double-equal `==` type check to ishness
