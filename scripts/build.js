@@ -12,9 +12,7 @@ const PREAMPLE = "\
 // See the full source code at: https://github.com/sghiassy/simple-bdd \n";
 
 const UGLIFY_OPTIONS = {
-    compress: {
-        passes: 1
-    },
+    compress: true,
     output: {
         beautify: false,
         preamble: PREAMPLE
