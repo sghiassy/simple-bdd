@@ -44,13 +44,17 @@ describe("Simple-BDD", function() {
     }
   });
 
-  it("should be able to process incomplete tests");
+  it("should be able to process incomplete tests that dont have a callback");
 
   describe("Nested describe functions", function() {
 
-    it("should work inside a nested describe function", function() {
-      var two = 2;
-      two.should_equal(2);
+    describe("Nested describe functions", function() {
+
+      it("should work inside a nested describe function", function() {
+        var two = 2;
+        two.should_equal(new Number(2));
+      });
+
     });
 
   });
