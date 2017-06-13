@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "node ./scripts/build.js",
     "debug": "node-debug tests.js",
-    "start": "node tests.js",
+    "start": "npm test",
     "test": "node tests.js"
   },
   "repository": {
