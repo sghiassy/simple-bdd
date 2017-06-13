@@ -1,4 +1,4 @@
-require('./build.js'); // first build the min
+require('./build_project.js'); // first build the min
 
 var fs = require('fs');
 var ejs = require('ejs');
@@ -6,7 +6,7 @@ var exec = require('child_process').exec,
     child;
 
 const TESTS_TEMPLATE = __dirname + '/../tests/tests.ejs';
-const TESTS_OUTPUT = __dirname + '/../tests/tests.tmp.js';
+const TESTS_OUTPUT = __dirname + '/../tmp/tests.tmp.js';
 const MINIFIED_BUILD = __dirname + '/../dist/index.min.js';
 
 ejs.renderFile(TESTS_TEMPLATE, {}, function(err, result) {

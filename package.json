@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node ./scripts/build.js",
+    "build": "node ./scripts/build_project.js",
     "debug": "node-debug tests.js",
     "start": "npm test",
-    "test": "node ./scripts/test.js"
+    "test": "node ./scripts/build_tests.js"
   },
   "repository": {
     "type": "git",
