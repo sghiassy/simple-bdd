@@ -1,3 +1,5 @@
+require('./index.js');
+
 var arr = [];
 
 describe("Simple-BDD", function() {

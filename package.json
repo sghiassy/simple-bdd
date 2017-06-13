@@ -6,7 +6,7 @@
   "scripts": {
     "debug": "node-debug tests.js",
     "start": "node tests.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node tests.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,5 @@
   },
   "homepage": "https://github.com/sghiassy/simple-bdd#readme",
   "dependencies": {
-    "should": "^8.2.2"
   }
 }
