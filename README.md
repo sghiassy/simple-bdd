@@ -21,10 +21,8 @@ This intentionally small framework allows you to paste a couple lines of code in
 ### Example
 
 ```js
-
-// https://github.com/sghiassy/simple-bdd
-function describe(o,e){console.log(prefix+"DESCRIBE: "+o),prefix+="  ",e(),console.log(""),prefix=prefix.slice(0,-2)}function xdescribe(o,e){console.log(prefix+"SKIPPING: "+o)}function it(o,e){e||xit(o,e);try{e()}catch(n){console.log(prefix+"FAIL: "+o),o="",console.log(n)}finally{""!=o&&console.log(prefix+"PASS: "+o+"\n")}}function xit(o,e){console.log(prefix+"SKIP: "+o+"\n")}var prefix="  ";console.log("\n\nSTARTING TESTS\n\n"),Object.prototype.should_equal=function(o){if(this==o)return this;throw{expected:this,operator:"to equal",actual:o}};
-
+// !IMPORTANT: Before any content
+// Paste the contents of `dist/index.min.js` into the online code editor to setup SimpleBDD
 
 function returnNumber(num) {
   return num;
@@ -41,14 +39,18 @@ describe('returnNumber', function() {
 });
 ```
 
-Running this code would ouput
+Running this code with SimpleBDD, the console would output:
 
 ```
 STARTING TESTS
 
+DESCRIBE: returnNumber
 
-  DESCRIBE: sayHello
-    PASS: should return Hello World
+  PASS: should return the number I give it
+
+Tests Passed: 1
+Tests Skipped: 0
+Tests Failed: 0
 ```
 
 #### Failure Output
