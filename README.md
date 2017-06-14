@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/sghiassy/simple-bdd/tree/master.svg?style=shield)](https://circleci.com/gh/sghiassy/simple-bdd/tree/master)
+
 # Simple BDD
 
 Simple BDD is a very simple BDD style test runner. It features only the bare essentials necessities for running BDD style tests.
