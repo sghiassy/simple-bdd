@@ -22,13 +22,21 @@ var SBDD = { // items to namespace
 console.log('\n' + "STARTING TESTS (NodeJS: " + process.version + ")" + '\n');
 
 function xdescribe(title, text) {
-  SBDD.tests_skipped += 1;
+  xxdescribe(title, text);
   console.log(SBDD.prefix + "SKIPPING: " + title);
 }
 
-function xit(title, test) {
+function xxdescribe(title, text) {
   SBDD.tests_skipped += 1;
+}
+
+function xit(title, test) {
+  xxit(title, test);
   console.log(SBDD.prefix + "SKIP: " + title + '\n');
+}
+
+function xxit(title, test) {
+  SBDD.tests_skipped += 1;
 }
 
 // Global Functions
