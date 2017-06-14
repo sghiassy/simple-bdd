@@ -19,7 +19,7 @@ var SBDD = { // items to namespace
   }
 }
 
-console.log('\n' + "STARTING TESTS" + '\n');
+console.log('\n' + "STARTING TESTS (NodeJS: " + process.version + ")" + '\n');
 
 function xdescribe(title, text) {
   SBDD.tests_skipped += 1;
