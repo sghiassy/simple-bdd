@@ -12,12 +12,16 @@ const PREAMPLE = "\
 // See the full source code at: https://github.com/sghiassy/simple-bdd \n";
 
 const UGLIFY_OPTIONS = {
-    compress: true,
+    compress: {
+      passes: 23,
+    },
     output: {
         beautify: false,
         preamble: PREAMPLE
     },
-    mangle: false,
+    mangle: {
+      toplevel: false,
+    },
 };
 
 const code = fs.readFileSync(INDEX_FILE, 'UTF-8');
