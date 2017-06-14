@@ -60,6 +60,8 @@ describe("Simple-BDD", function() {
   });
 });
 
-describe("Outside function", function() {
-  it("should reset the prefix");
+describe("Multiple root functions", function() {
+  it('should handle multiple root functions', function() {
+    true.should_equal(true);
+  });
 });
